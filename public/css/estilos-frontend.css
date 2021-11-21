@@ -1,0 +1,324 @@
+body, html{
+    background-color: #FFFFFF!important;
+}
+h1 {
+    font-family: fuente1 !important;
+
+    font-weight: bold!important;
+}
+
+h5, h4, span, button, a, small, button, p{
+
+    font-family: fuente2!important;
+
+}
+h6{
+
+    color: #000!important;
+
+    font-weight: bold!important;
+
+    font-size: 17px!important;
+
+    font-family: fuente2!important;
+
+}
+
+nav.nav_top_pc {
+    background-color: #080404!important;
+
+    height: 140px!important;
+}
+nav.nav_top_pc ul li.itemnav{
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
+}
+nav.nav_top_pc ul li a {
+    color: #fff !important;
+
+    font-size: 20px!important;
+}
+
+.btn-nav:hover {
+    border-bottom: 4px solid #04d28c!important;
+
+    transition: all 0.2s!important;
+}
+
+nav.nav_top_movil {
+    background-color: #080404!important;
+}
+nav.nav_top_movil ul li{
+    padding-left:1rem!important;
+    padding-right:1rem!important;
+}
+nav.nav_top_movil ul li a {
+    color: #fff !important;
+
+    font-size: 20px!important;
+}
+.banner1 {
+
+    width: 100%;
+
+    height: 100vh;
+
+    background-image: url("../images/landing/slider-home.png")!important;
+
+    background-size: 100%;
+
+    background-position: center bottom;
+
+    background-repeat: no-repeat;
+
+    color: #FFF!important;
+
+    background-color: #000000;
+
+}
+hr{
+		
+    border: 2px solid #04d28c;
+
+    background-color: #04d28c;
+
+    height: 4px;
+
+    width: 140px;
+
+}
+hr.hrcompra{
+        
+    border: 0.1px solid #04d28c!important;
+
+    background-color: #04d28c!important;
+
+    height: 0.1px!important;
+
+    width:100%;
+}
+.banner2 p{
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    font-family: fuente2!important;
+
+    line-height: 1.2;
+
+}
+.btn-compartelo{
+    color: #04a28d!important;
+    border-color: #04a28d!important;
+    font-size: 1.5rem!important;
+    border-radius: 30px!important;
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+}
+.btn-compartelo:hover{
+    color: #FFF!important;
+    background-color: #04a28d!important;
+    border-color: #04a28d!important;
+    font-size: 1.5rem!important;
+}
+.btn-loquiero1{
+    color: #FFF!important;
+    border-color: #04a28d!important;
+    font-size: 1.5rem!important;
+    border-radius: 30px!important;
+    padding-left: 50px!important;
+    padding-right: 50px!important;
+}
+.btn-loquiero1:hover{
+    background-color:  #04b98e !important;
+    color:#FFF!important;
+}
+.btn-loquiero2{
+    color: #FFF!important;
+    border-color: #04a28d!important;
+    font-size: 1.5rem!important;
+    border-radius: 30px!important;
+    padding-left: 50px!important;
+    padding-right: 50px!important;
+    background-color: #04a28d!important;
+}
+.btn-loquiero2:hover{
+    color:#FFF!important;
+    background-color: transparent!important;
+}
+.precio_span{
+    color: #04a28d!important;
+    font-size: 1.9rem!important;
+    font-weight: bold!important;
+}
+.btn-loquiero3{
+    color: #08d494 !important;
+    border-color: #04a28d!important;
+    font-size: 2rem!important;
+    border-radius: 30px!important;
+    padding-left: 50px!important;
+    padding-right: 50px!important;
+    background-color: #041414!important;
+}
+.btn-loquiero3:hover{
+    color:#FFF!important;
+    background-color: transparent!important;
+}
+.btn-siguiente2{
+    color: #000!important;
+    border-color: #04a28d!important;
+    font-size: 1.5rem!important;
+    border-radius: 30px!important;
+    padding-left: 50px!important;
+    padding-right: 50px!important;
+    background-color: #0eeaaf!important;
+    font-weight: bold!important;
+    width: 100%!important;
+}
+.btn-siguiente2:hover{
+    color: #000!important;
+   
+}
+footer{
+    background-color: #080404;
+}
+
+nav.nav_bottom{
+    background-color: #080404;
+}
+nav.nav_bottom ul li a{
+    color: #FFF!important;
+    font-size: 20px;
+}
+.form-group {
+
+    margin-bottom: 1rem!important;
+
+}
+
+.form-row>.col, .form-row>[class*=col-] {
+
+    padding-right: 5px!important;
+
+    padding-left: 5px!important;
+
+}
+
+input, textarea{
+
+    /*background-color: #e9eeed!important;*/
+
+    font-family: fuente2!important;
+    font-size: 17px!important;
+
+}
+input:focus{
+          border: 1px solid #0eeaaf!important;
+        }
+.btn-opc2{
+    background-color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+    font-size: 1rem!important;
+
+    border-radius: 5px!important;
+
+    padding: 10px!important;
+
+    color:#FFF!important;
+
+}
+.btn-opc2:hover{
+
+    color: #FFF!important;
+
+    background-color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+}
+.btn-opc{
+    color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+    font-size: 1rem!important;
+
+    border-radius: 5px!important;
+
+    padding: 10px!important;
+}
+
+.btn-opc:hover{
+
+    color: #FFF!important;
+
+    background-color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+}
+.btn-add{
+
+    color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+    font-size: 1rem!important;
+
+    border-radius: 5px!important;
+
+    padding-left: 5px!important;
+
+    padding-right: 5px!important;
+
+}
+
+.btn-add:hover{
+
+    color: #FFF!important;
+
+    background-color: #04a28d!important;
+
+    border-color: #04a28d!important;
+
+}
+
+.btn-siguiente{
+
+    color: #0eeaaf !important;
+
+    border-color: #04a28d!important;
+
+    font-size: 1.5rem!important;
+
+    border-radius: 10px!important;
+
+    padding-left: 50px!important;
+
+    padding-right: 50px!important;
+
+    background-color: #000!important;
+
+    font-weight: bold!important;
+
+    width: 100%!important;
+
+}
+
+.btn-siguiente:hover{
+
+    color: #0eeaaf !important;
+   
+}
+
+/* formulario devolucion */
+
+ul.datosestudiante li{
+    background-color:  #51f9c1 !important;
+    border-color: #FFF!important;
+    font-weight: bold;
+    font-family: fuente2!important;
+}
