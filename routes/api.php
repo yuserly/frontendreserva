@@ -34,7 +34,7 @@ Route::get('obtenersucursal',[SucursalController::class,'show']);
 Route::get('obtenerespecialidad',[EspecialidadController::class,'show']);
 Route::get('obtenerservicios/{id_especialidad}/{id_sucursal}',[SucursalController::class,'showserviciosucursal']);
 Route::get('obtenerprofesional/{id_servicio}/{id_sucursal}',[ProfesionalController::class,'showserviciosucursal']);
-Route::get('traerdia/{id_profesional}',[ProfesionalController::class,'traerdia']);
+Route::get('traerdia/{id_profesional}/{sucursal}',[ProfesionalController::class,'traerdia']);
 Route::post('traerhorariofrontend',[ProfesionalController::class,'traerhorariofrontend']);
 Route::get('validarrutpaciente/{rut}',[PacienteController::class,'validarrut']);
 Route::get('obtenerprevision',[PrevensionController::class,'show']);

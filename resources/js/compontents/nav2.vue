@@ -24,13 +24,6 @@ export default {
 }
 
 
-
-nav.nav_top_pc {
-    background-color: #080404!important;
-		max-height: 100px!important;
-		-webkit-box-shadow: 0px 4px 8px 1px #000000!important; 
-		box-shadow: 0px 4px 8px 1px #000000!important;
-}
 nav.nav_top_pc ul li a {
     color: #fff !important;
 
@@ -49,13 +42,6 @@ nav.nav_top_movil {
 		-webkit-box-shadow: 0px 4px 8px 1px #000000!important; 
 		box-shadow: 0px 4px 8px 1px #000000!important;
 }
-
-nav.nav_top_movil ul li a {
-    color: #fff !important!important;
-
-    font-size: 20px;
-}
-
     .btn-siguiente{
     	color: #0eeaaf ;
         border-color: #04a28d;
@@ -109,28 +95,9 @@ nav.nav_top_movil ul li a {
 
 <template>
     <header>
-        <nav
-            class="navbar navbar-expand-lg navbar-light nav_top_movil d-md-none d-lg-none mb-5" style="margin-bottom: 110px !important;"
-        >
-            <div class="container d-flex justify-content-center">
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <nav
-            class="navbar navbar-expand-lg navbar-light nav_top_pc d-none d-md-block d-lg-block"
-        >
-            <div class="container d-flex justify-content-start">
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                    </div>
-                </div>
-            </div>
+        <nav class="text-center">
+            <img src="images/reservas.png" width="20%" alt="">
         </nav>
     </header>
+    
 </template>

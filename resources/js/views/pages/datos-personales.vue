@@ -1,31 +1,49 @@
 <script src="./datos-personales.js"></script>
+
+<style>
+
+div.backgroundG{
+    background: url('/images/fondo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+</style>
+
 <template>
-  <div>
+  <div class="backgroundG">
     <LayoutTienda>
       <div class="container mt-5">
         <div class="row d-flex justify-content-center">
-          <div class="col-xl-6">
+          <div class="col-xl-9">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body" style="box-shadow: 0px 1px 19px #7e7c7c; padding: 0px;">
+                <div class="row">
+                  <div class="col-12 text-center" style="padding: 20px 0px;">
+                    <i><h5>REGISTRO DE RESERVAS</h5></i>
+                  </div>
+                </div>
                 <form-wizard
-                v-if="!url"
-                  color="#5b73e8"
+                  v-if="!url"
+                  color="#93117ee8"
                   next-button-text="Siguiente"
                   back-button-text="Atras"
                   finish-button-text="Finalizar"
                   @on-complete="onComplete()"
                 >
-                  <tab-content icon="mdi mdi-account-circle">
+                  <tab-content icon="mdi mdi-human-greeting">
                     <div class="row">
                       <div class="col-12 col-lg-6">
                         <div class="mb-3">
-                          <label for="rut">Rut</label>
+                          <label for="rut">RUT</label>
                           <input
                             id="rut"
                             v-model="form.rut"
                             type="text"
-                            class="form-control"
-                            @input="validarRut($event)"
+                            class="form-control inputRUT"
+                            v-on:input="checkRut(this)"
                           />
                           <span v-if="submitted && !form.rut"
                             >El rut es requerido.</span
@@ -128,7 +146,7 @@
                       </div>
                     </div>
                   </tab-content>
-                  <tab-content icon="mdi mdi-face-profile">
+                  <tab-content icon="mdi mdi-clipboard-plus">
                     <div class="row">
                       <div class="col-12 col-lg-6">
                         <div class="mb-3">

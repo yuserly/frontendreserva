@@ -5,7 +5,6 @@ export default {
     components:{
         Nav2,
     }
-
 }
 </script>
 

@@ -123,9 +123,9 @@ class ProfesionalController extends Controller
 
             $horario = HorarioProfesional::where([
                 ['dia_id','=', $id_dia],
-                ['profesional_id_profesional','=',$request->profesional["profesional_id_profesional"]]
+                ['profesional_id_profesional','=',$request->profesional["profesional_id_profesional"]],
+                ['sucursal_id','=',$request->id_sucursal]
                 ])->first();
-
         }else{
 
             $horario = [];
@@ -190,9 +190,7 @@ class ProfesionalController extends Controller
                                 }
                             }
                         }
-                        
                     }
-                
             }
 
             $arrayh = array_values($arrayh);
@@ -213,15 +211,11 @@ class ProfesionalController extends Controller
                             if($arrayh[$k]){
                                 unset($arrayh[$k]);
                             }
-                            
                         }
                     }
-
                     $arrayh = array_values($arrayh);
                 }
-
             }
-
         }
 
         // sacamos la hora actual 
@@ -274,9 +268,8 @@ class ProfesionalController extends Controller
     }
   
 
-    public function traerdia($id_profesional){
-
-        $dia = HorarioProfesional::where([['profesional_id_profesional','=',$id_profesional]])->with('dia')->get();
+    public function traerdia($id_profesional, $sucursal){
+        $dia = HorarioProfesional::where([['profesional_id_profesional','=',$id_profesional],['sucursal_id', '=', $sucursal]])->with('dia')->get();
         return $dia;
 
     }

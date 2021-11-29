@@ -11,7 +11,7 @@ class HorarioProfesional extends Model
 
     protected $primarykey = "id_horarioprofesional";
 
-    protected $fillable = ['horario_inicio', 'horario_fin', 'dia_id'];
+    protected $fillable = ['horario_inicio', 'horario_fin', 'dia_id', 'sucursal_id'];
 
    
 

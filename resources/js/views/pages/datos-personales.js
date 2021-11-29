@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import Datepicker from "vuejs-datepicker";
 import Multiselect from "vue-multiselect";
 import moment from "moment";
+import $ from 'jquery'
 
 export default {
   components: {
@@ -48,6 +49,7 @@ export default {
         direccion: "",
         prevension_id: "",
         id_paciente: "",
+        id_sucursal: "",
       },
       optionsHora: [],
     };
@@ -59,18 +61,21 @@ export default {
     this.traerPrevision();
   },
   methods: {
+
     customLabel({ profesional }) {
       return `${profesional.nombres} ${profesional.apellidos} `;
     },
+
     traerPrevision() {
       this.axios.get(`/api/obtenerprevision/`).then((response) => {
         this.optionsPrevension = response.data;
       });
     },
+
     validarRut($event) {
-      if ($event.target.value.length > 4) {
+      if ($event.length > 4) {
         this.axios
-          .get(`/api/validarrutpaciente/${$event.target.value}`)
+          .get(`/api/validarrutpaciente/${$event}`)
           .then((response) => {
             if (response.data != 0) {
               this.form.nombres = response.data.nombres;
@@ -87,11 +92,63 @@ export default {
           });
       }
     },
+
+    checkRut() {
+
+      var valor = this.form.rut.replace('.','');  // Quita Punto
+      valor = valor.replace('-','');// Quita Guión
+      var cuerpo = valor.slice(0,-1);// Aislar Cuerpo y Dígito Verificador
+      var dv = valor.slice(-1).toUpperCase();
+      this.form.rut = cuerpo + '-'+ dv// Formatear RUN
+
+      if(cuerpo.length < 7) {// Si no cumple con el mínimo de digitos ej. (n.nnn.nnn)
+          $('.inputRUT').attr('style', 'border-color: red !important');
+          $('.btnSubmit').prop('disabled',  true);
+          return false;
+      }
+
+      var suma = 0; // Calcular Dígito Verificador
+      var multiplo = 2;
+
+      for(var i=1;i<=cuerpo.length;i++) // Para cada dígito del Cuerpo
+      {
+          var index = multiplo * valor.charAt(cuerpo.length - i); // Obtener su Producto con el Múltiplo Correspondiente
+          suma = suma + index; // Sumar al Contador General
+          if(multiplo < 7) {
+              multiplo = multiplo + 1;
+          }else{
+              multiplo = 2;
+          } // Consolidar Múltiplo dentro del rango [2,7]
+      }
+
+      var dvEsperado = 11 - (suma % 11); // Calcular Dígito Verificador en base al Módulo 11
+      dv = (dv == 'K')?10:dv; // Casos Especiales (0 y K)
+      dv = (dv == 0)?11:dv;
+
+      if(dvEsperado != dv) {
+          $('.inputRUT').attr('style', 'border-color: red !important');
+          $('.btnSubmit').prop('disabled',  true);
+          this.form.nombres = ""
+          this.form.apellidos = ""
+          this.form.id_paciente = ""
+          this.form.email = "";
+          this.form.direccion = "";
+          this.form.celular = "";
+          this.form.prevension_id = "";
+          return false;
+      } // Validar que el Cuerpo coincide con su Dígito Verificador
+
+      $('.inputRUT').attr('style', 'border-color: #40A944 !important');  // Si todo sale bien, eliminar errores (decretar que es válido)
+      $('.btnSubmit').prop('disabled',  false);
+      this.validarRut(this.form.rut);
+    },
+
     traerSucursal() {
       this.axios.get(`/api/obtenersucursal`).then((response) => {
         this.optionsSucursal = response.data;
       });
     },
+
     traerEspecialidad() {
       this.axios.get(`/api/obtenerespecialidad`).then((response) => {
         console.log(response);
@@ -148,6 +205,7 @@ export default {
         });
       }
     },
+
     traerServicio() {
       this.axios
         .get(
@@ -157,6 +215,7 @@ export default {
           this.optionsServicio = response.data;
         });
     },
+
     traerProfesional() {
       this.axios
         .get(
@@ -167,12 +226,14 @@ export default {
           this.optionsProfesional = response.data;
         });
     },
+
     traerDiasDisponibles() {
+
       let diashabiles = [];
       let diassemana = [0, 1, 2, 3, 4, 5, 6];
       this.axios
         .get(
-          `/api/traerdia/${this.form.profesional.profesional_id_profesional}`
+          `/api/traerdia/${this.form.profesional.profesional_id_profesional}/${this.form.sucursal.id_sucursal}`
         )
         .then((response) => {
           if (response.data.length > 0) {
@@ -196,15 +257,15 @@ export default {
           this.disabledDates.days = diassemana;
         });
     },
+
     traerHorario() {
+      this.form.id_sucursal = this.form.sucursal.id_sucursal;
       this.form.id_dia = this.form.dia.getDay();
       this.form.dia = moment(this.form.dia).format("YYYY-MM-DD");
-      console.log(this.form);
       this.axios
         .post(`/api/traerhorariofrontend`, this.form)
         .then((response) => {
           console.log(response);
-
           var rangosdisponibles = response.data.rangosdisponibles;
           var rangoshoraactual = response.data.rangoshoraactual;
 
@@ -226,5 +287,6 @@ export default {
           console.log(this.optionsHora);
         });
     },
+
   },
 };
