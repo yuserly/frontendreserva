@@ -1,15 +1,13 @@
 <script src="./datos-personales.js"></script>
 
 <style>
-
-div.backgroundG{
-    background: url('/images/fondo.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+div.backgroundG {
+  background: url("/images/fondo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-
 </style>
 
 <template>
@@ -19,9 +17,12 @@ div.backgroundG{
         <div class="row d-flex justify-content-center">
           <div class="col-xl-9">
             <div class="card">
-              <div class="card-body" style="box-shadow: 0px 1px 19px #7e7c7c; padding: 0px;">
+              <div
+                class="card-body"
+                style="box-shadow: 0px 1px 19px #7e7c7c; padding: 0px"
+              >
                 <div class="row">
-                  <div class="col-12 text-center" style="padding: 20px 0px;">
+                  <div class="col-12 text-center" style="padding: 20px 0px">
                     <i><h5>REGISTRO DE RESERVAS</h5></i>
                   </div>
                 </div>
@@ -276,13 +277,12 @@ div.backgroundG{
                       </table>
                     </div>
                   </div>
-                </div>
-
-                <div class="col">
-                  <div class="text-sm-right mt-2 mt-sm-0">
-                    <a :href="url" class="btn btn-success " id="pagar">
-                      <i class="uil uil-shopping-cart-alt me-1"></i> Pagar
-                    </a>
+                  <div class="col">
+                    <div class="text-sm-right mt-2 mt-sm-0">
+                      <a :href="url" class="btn btn-success" id="pagar">
+                        <i class="uil uil-shopping-cart-alt me-1"></i> Pagar
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -268,6 +268,13 @@ __webpack_require__.r(__webpack_exports__);
     traerServicio: function traerServicio() {
       var _this6 = this;
 
+      this.form.profesional = '';
+      this.form.servicio = '';
+      this.optionsServicio = [];
+      this.optionsProfesional = [];
+      this.form.dia = '';
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
       this.axios.get("/api/obtenerservicios/".concat(this.form.especialidad.id_especialidad, "/").concat(this.form.sucursal.id_sucursal)).then(function (response) {
         _this6.optionsServicio = response.data;
       });
@@ -275,6 +282,9 @@ __webpack_require__.r(__webpack_exports__);
     traerProfesional: function traerProfesional() {
       var _this7 = this;
 
+      this.form.dia = '';
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
       this.axios.get("/api/obtenerprofesional/".concat(this.form.servicio.id_servicio, "/").concat(this.form.sucursal.id_sucursal)).then(function (response) {
         console.log(response);
         _this7.optionsProfesional = response.data;
@@ -283,6 +293,8 @@ __webpack_require__.r(__webpack_exports__);
     traerDiasDisponibles: function traerDiasDisponibles() {
       var _this8 = this;
 
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
       var diashabiles = [];
       var diassemana = [0, 1, 2, 3, 4, 5, 6];
       this.axios.get("/api/traerdia/".concat(this.form.profesional.profesional_id_profesional, "/").concat(this.form.sucursal.id_sucursal)).then(function (response) {
@@ -310,6 +322,7 @@ __webpack_require__.r(__webpack_exports__);
     traerHorario: function traerHorario() {
       var _this9 = this;
 
+      this.optionsHora = [];
       this.form.id_sucursal = this.form.sucursal.id_sucursal;
       this.form.id_dia = this.form.dia.getDay();
       this.form.dia = moment__WEBPACK_IMPORTED_MODULE_6___default()(this.form.dia).format("YYYY-MM-DD");
@@ -382,7 +395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: fuente1;\n\n    src: url(\"/fonts/Gotham-Bold.otf\");\n}\n@font-face {\n    font-family: fuente2;\n\n    src: url(\"/fonts/AmazonEmber_Rg.ttf\");\n}\nnav.nav_top_pc ul li a[data-v-31575a6e] {\n    color: #fff !important;\n\n    font-size: 20px;\n}\n.btn-nav[data-v-31575a6e]:hover {\n    border-bottom: 4px solid #04d28c;\n\n    transition: all 0.2s;\n}\nnav.nav_top_movil[data-v-31575a6e] {\n    background-color: #080404;\n\t\tmax-height: 100px!important; \n\t\tbox-shadow: 0px 4px 8px 1px #000000!important;\n}\n.btn-siguiente[data-v-31575a6e]{\n    \tcolor: #0eeaaf ;\n        border-color: #04a28d;\n        font-size: 1.5rem;\n        border-radius: 30px;\n        padding-left: 50px;\n        padding-right: 50px;\n        background-color: #000;\n        font-weight: bold;\n        width: 100%;\n}\n.btn-siguiente[data-v-31575a6e]:hover{\n    \tcolor: #0eeaaf ;\n}\n.btn-add[data-v-31575a6e]{\n        color: #04a28d;\n        border-color: #04a28d;\n        font-size: 1rem;\n        border-radius: 5px;\n        padding-left: 5px;\n        padding-right: 5px;\n}\n.btn-add[data-v-31575a6e]:hover{\n        color: #FFF;\n        background-color: #04a28d;\n        border-color: #04a28d;\n}\n.btn-siguiente2[data-v-31575a6e]{\n    color: #000 !important;\n    border-color: #04a28d !important;\n    font-size: 1.5rem !important;\n    border-radius: 30px !important;\n    padding-left: 50px !important;\n    padding-right: 50px !important;\n    background-color: #0eeaaf !important;\n    font-weight: bold !important;\n    width: 100% !important;\n}\n.btn-siguiente2[data-v-31575a6e]:hover{\n    color: #000 !important ;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: fuente1;\r\n\r\n    src: url(\"/fonts/Gotham-Bold.otf\");\n}\n@font-face {\r\n    font-family: fuente2;\r\n\r\n    src: url(\"/fonts/AmazonEmber_Rg.ttf\");\n}\nnav.nav_top_pc ul li a[data-v-31575a6e] {\r\n    color: #fff !important;\r\n\r\n    font-size: 20px;\n}\n.btn-nav[data-v-31575a6e]:hover {\r\n    border-bottom: 4px solid #04d28c;\r\n\r\n    transition: all 0.2s;\n}\nnav.nav_top_movil[data-v-31575a6e] {\r\n    background-color: #080404;\r\n\t\tmax-height: 100px!important; \r\n\t\tbox-shadow: 0px 4px 8px 1px #000000!important;\n}\n.btn-siguiente[data-v-31575a6e]{\r\n    \tcolor: #0eeaaf ;\r\n        border-color: #04a28d;\r\n        font-size: 1.5rem;\r\n        border-radius: 30px;\r\n        padding-left: 50px;\r\n        padding-right: 50px;\r\n        background-color: #000;\r\n        font-weight: bold;\r\n        width: 100%;\n}\n.btn-siguiente[data-v-31575a6e]:hover{\r\n    \tcolor: #0eeaaf ;\n}\n.btn-add[data-v-31575a6e]{\r\n        color: #04a28d;\r\n        border-color: #04a28d;\r\n        font-size: 1rem;\r\n        border-radius: 5px;\r\n        padding-left: 5px;\r\n        padding-right: 5px;\n}\n.btn-add[data-v-31575a6e]:hover{\r\n        color: #FFF;\r\n        background-color: #04a28d;\r\n        border-color: #04a28d;\n}\n.btn-siguiente2[data-v-31575a6e]{\r\n    color: #000 !important;\r\n    border-color: #04a28d !important;\r\n    font-size: 1.5rem !important;\r\n    border-radius: 30px !important;\r\n    padding-left: 50px !important;\r\n    padding-right: 50px !important;\r\n    background-color: #0eeaaf !important;\r\n    font-weight: bold !important;\r\n    width: 100% !important;\n}\n.btn-siguiente2[data-v-31575a6e]:hover{\r\n    color: #000 !important ;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -406,7 +419,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.backgroundG{\n    background: url('/images/fondo.png');\n    background-repeat: no-repeat;\n    background-position: center center;\n    background-size: cover;\n    background-attachment: fixed;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.backgroundG {\r\n  background: url(\"/images/fondo.png\");\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-attachment: fixed;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37609,26 +37622,31 @@ var render = function () {
                                 ),
                               ]),
                             ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col" }, [
+                              _c(
+                                "div",
+                                { staticClass: "text-sm-right mt-2 mt-sm-0" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "btn btn-success",
+                                      attrs: { href: _vm.url, id: "pagar" },
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "uil uil-shopping-cart-alt me-1",
+                                      }),
+                                      _vm._v(" Pagar\n                    "),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
                           ]
                         ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _c("div", { staticClass: "text-sm-right mt-2 mt-sm-0" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-success ",
-                            attrs: { href: _vm.url, id: "pagar" },
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "uil uil-shopping-cart-alt me-1",
-                            }),
-                            _vm._v(" Pagar\n                  "),
-                          ]
-                        ),
-                      ]),
-                    ]),
                   ],
                   1
                 ),

@@ -105,11 +105,12 @@ class ProfesionalController extends Controller
 
         // pasar a numero 
 
-        $quitarcero = str_replace("0", "", $request->especialidad["intervalo"]);
+
+        $quitarcero = str_replace("00:", "", $request->especialidad["intervalo"]);
 
         // quitar :
 
-        $quitarpunto = str_replace(":", "", $quitarcero);
+        $quitarpunto = str_replace(":00", "", $quitarcero);
 
         $intervalo = (int)$quitarpunto;
 
@@ -132,6 +133,8 @@ class ProfesionalController extends Controller
 
         }
 
+        
+
         // sacar rangos
 
         if($horario){
@@ -150,7 +153,11 @@ class ProfesionalController extends Controller
         $arrayh = [];
 
             foreach($rangoHoras as $hora){
-                $arrayh[] =  $hora->format("H:i:s");
+
+                if($hora->format("H:i:s") <= $horario["hora_fin"]){
+                    $arrayh[] =  $hora->format("H:i:s");
+                }
+                
             }
 
         

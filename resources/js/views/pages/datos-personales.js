@@ -143,6 +143,7 @@ export default {
       this.validarRut(this.form.rut);
     },
 
+
     traerSucursal() {
       this.axios.get(`/api/obtenersucursal`).then((response) => {
         this.optionsSucursal = response.data;
@@ -207,6 +208,14 @@ export default {
     },
 
     traerServicio() {
+      this.form.profesional = '';
+      this.form.servicio = ''
+      this.optionsServicio = [];
+      this.optionsProfesional = [];
+      this.form.dia = '';
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
+
       this.axios
         .get(
           `/api/obtenerservicios/${this.form.especialidad.id_especialidad}/${this.form.sucursal.id_sucursal}`
@@ -217,6 +226,9 @@ export default {
     },
 
     traerProfesional() {
+      this.form.dia = '';
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
       this.axios
         .get(
           `/api/obtenerprofesional/${this.form.servicio.id_servicio}/${this.form.sucursal.id_sucursal}`
@@ -228,6 +240,9 @@ export default {
     },
 
     traerDiasDisponibles() {
+
+      this.form.hora_inicio = '';
+      this.optionsHora = [];
 
       let diashabiles = [];
       let diassemana = [0, 1, 2, 3, 4, 5, 6];
@@ -259,6 +274,7 @@ export default {
     },
 
     traerHorario() {
+      this.optionsHora = [];
       this.form.id_sucursal = this.form.sucursal.id_sucursal;
       this.form.id_dia = this.form.dia.getDay();
       this.form.dia = moment(this.form.dia).format("YYYY-MM-DD");
