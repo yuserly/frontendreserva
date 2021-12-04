@@ -144,7 +144,6 @@ export default {
       this.validarRut(this.form.rut);
     },
 
-
     traerSucursal() {
       this.axios.get(`/api/obtenersucursal`).then((response) => {
         this.optionsSucursal = response.data;
@@ -279,8 +278,8 @@ export default {
       
       this.optionsHora = [];
       this.form.id_sucursal = this.form.sucursal.id_sucursal;
-      this.form.id_dia = this.form.dia.getDay();
-      this.form.dia = moment(this.form.dia).format("YYYY-MM-DD");
+      this.form.id_dia = this.form.diaIn.getDay();
+      this.form.dia = moment(this.form.diaIn).format("YYYY-MM-DD");
       this.axios
         .post(`/api/traerhorariofrontend`, this.form)
         .then((response) => {

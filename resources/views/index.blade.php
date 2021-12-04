@@ -11,8 +11,14 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-
+        <style>
+            body, html {
+                height: 100%;
+                background-repeat: no-repeat;
+                background: url("/images/fondo.png") no-repeat center center fixed;
+                background-size: 100% 100%;
+            }
+            </style>
     </head>
 
     <body >

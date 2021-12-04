@@ -1,15 +1,5 @@
 <script src="./datos-personales.js"></script>
 
-<style>
-div.backgroundG {
-  background: url("/images/fondo.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-</style>
-
 <template>
   <div class="backgroundG">
     <LayoutTienda>
@@ -204,7 +194,7 @@ div.backgroundG {
                             v-if="form.profesional"
                             :bootstrap-styling="true"
                             :disabledDates="disabledDates"
-                            v-model="form.dia"
+                            v-model="form.diaIn"
                             @input="traerHorario()"
                           ></datepicker>
                         </div>
