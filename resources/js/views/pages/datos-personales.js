@@ -37,6 +37,7 @@ export default {
         especialidad: "",
         servicio: "",
         profesional: "",
+        diaIn: "",
         dia: "",
         id_dia: "",
         hora_inicio: "",
@@ -190,7 +191,7 @@ export default {
         this.form.hora_fin = moment(hora_fin).format("HH:mm:ss");
 
         console.log(this.form);
-
+        
         this.axios.post(`/api/crearreserva`, this.form).then((response) => {
           console.log(response);
 
@@ -274,6 +275,8 @@ export default {
     },
 
     traerHorario() {
+      console.log(this.form.dia);
+      
       this.optionsHora = [];
       this.form.id_sucursal = this.form.sucursal.id_sucursal;
       this.form.id_dia = this.form.dia.getDay();
@@ -281,7 +284,6 @@ export default {
       this.axios
         .post(`/api/traerhorariofrontend`, this.form)
         .then((response) => {
-          console.log(response);
           var rangosdisponibles = response.data.rangosdisponibles;
           var rangoshoraactual = response.data.rangoshoraactual;
 

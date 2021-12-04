@@ -106,6 +106,7 @@ __webpack_require__.r(__webpack_exports__);
         especialidad: "",
         servicio: "",
         profesional: "",
+        diaIn: "",
         dia: "",
         id_dia: "",
         hora_inicio: "",
@@ -322,12 +323,12 @@ __webpack_require__.r(__webpack_exports__);
     traerHorario: function traerHorario() {
       var _this9 = this;
 
+      console.log(this.form.dia);
       this.optionsHora = [];
       this.form.id_sucursal = this.form.sucursal.id_sucursal;
       this.form.id_dia = this.form.dia.getDay();
       this.form.dia = moment__WEBPACK_IMPORTED_MODULE_6___default()(this.form.dia).format("YYYY-MM-DD");
       this.axios.post("/api/traerhorariofrontend", this.form).then(function (response) {
-        console.log(response);
         var rangosdisponibles = response.data.rangosdisponibles;
         var rangoshoraactual = response.data.rangoshoraactual;
 
@@ -395,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: fuente1;\r\n\r\n    src: url(\"/fonts/Gotham-Bold.otf\");\n}\n@font-face {\r\n    font-family: fuente2;\r\n\r\n    src: url(\"/fonts/AmazonEmber_Rg.ttf\");\n}\nnav.nav_top_pc ul li a[data-v-31575a6e] {\r\n    color: #fff !important;\r\n\r\n    font-size: 20px;\n}\n.btn-nav[data-v-31575a6e]:hover {\r\n    border-bottom: 4px solid #04d28c;\r\n\r\n    transition: all 0.2s;\n}\nnav.nav_top_movil[data-v-31575a6e] {\r\n    background-color: #080404;\r\n\t\tmax-height: 100px!important; \r\n\t\tbox-shadow: 0px 4px 8px 1px #000000!important;\n}\n.btn-siguiente[data-v-31575a6e]{\r\n    \tcolor: #0eeaaf ;\r\n        border-color: #04a28d;\r\n        font-size: 1.5rem;\r\n        border-radius: 30px;\r\n        padding-left: 50px;\r\n        padding-right: 50px;\r\n        background-color: #000;\r\n        font-weight: bold;\r\n        width: 100%;\n}\n.btn-siguiente[data-v-31575a6e]:hover{\r\n    \tcolor: #0eeaaf ;\n}\n.btn-add[data-v-31575a6e]{\r\n        color: #04a28d;\r\n        border-color: #04a28d;\r\n        font-size: 1rem;\r\n        border-radius: 5px;\r\n        padding-left: 5px;\r\n        padding-right: 5px;\n}\n.btn-add[data-v-31575a6e]:hover{\r\n        color: #FFF;\r\n        background-color: #04a28d;\r\n        border-color: #04a28d;\n}\n.btn-siguiente2[data-v-31575a6e]{\r\n    color: #000 !important;\r\n    border-color: #04a28d !important;\r\n    font-size: 1.5rem !important;\r\n    border-radius: 30px !important;\r\n    padding-left: 50px !important;\r\n    padding-right: 50px !important;\r\n    background-color: #0eeaaf !important;\r\n    font-weight: bold !important;\r\n    width: 100% !important;\n}\n.btn-siguiente2[data-v-31575a6e]:hover{\r\n    color: #000 !important ;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: fuente1;\n\n    src: url(\"/fonts/Gotham-Bold.otf\");\n}\n@font-face {\n    font-family: fuente2;\n\n    src: url(\"/fonts/AmazonEmber_Rg.ttf\");\n}\nnav.nav_top_pc ul li a[data-v-31575a6e] {\n    color: #fff !important;\n\n    font-size: 20px;\n}\n.btn-nav[data-v-31575a6e]:hover {\n    border-bottom: 4px solid #04d28c;\n\n    transition: all 0.2s;\n}\nnav.nav_top_movil[data-v-31575a6e] {\n    background-color: #080404;\n\t\tmax-height: 100px!important; \n\t\tbox-shadow: 0px 4px 8px 1px #000000!important;\n}\n.btn-siguiente[data-v-31575a6e]{\n    \tcolor: #0eeaaf ;\n        border-color: #04a28d;\n        font-size: 1.5rem;\n        border-radius: 30px;\n        padding-left: 50px;\n        padding-right: 50px;\n        background-color: #000;\n        font-weight: bold;\n        width: 100%;\n}\n.btn-siguiente[data-v-31575a6e]:hover{\n    \tcolor: #0eeaaf ;\n}\n.btn-add[data-v-31575a6e]{\n        color: #04a28d;\n        border-color: #04a28d;\n        font-size: 1rem;\n        border-radius: 5px;\n        padding-left: 5px;\n        padding-right: 5px;\n}\n.btn-add[data-v-31575a6e]:hover{\n        color: #FFF;\n        background-color: #04a28d;\n        border-color: #04a28d;\n}\n.btn-siguiente2[data-v-31575a6e]{\n    color: #000 !important;\n    border-color: #04a28d !important;\n    font-size: 1.5rem !important;\n    border-radius: 30px !important;\n    padding-left: 50px !important;\n    padding-right: 50px !important;\n    background-color: #0eeaaf !important;\n    font-weight: bold !important;\n    width: 100% !important;\n}\n.btn-siguiente2[data-v-31575a6e]:hover{\n    color: #000 !important ;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -419,7 +420,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.backgroundG {\r\n  background: url(\"/images/fondo.png\");\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-size: cover;\r\n  background-attachment: fixed;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.backgroundG {\n  background: url(\"/images/fondo.png\");\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-size: cover;\n  background-attachment: fixed;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37413,7 +37414,7 @@ var render = function () {
                                 _c("div", { staticClass: "row" }, [
                                   _c(
                                     "div",
-                                    { staticClass: "col-12 col-lg-6" },
+                                    { staticClass: "col-12 col-lg-12" },
                                     [
                                       _c(
                                         "div",
@@ -37422,13 +37423,13 @@ var render = function () {
                                           _c(
                                             "label",
                                             { attrs: { for: "dia" } },
-                                            [_vm._v("Dia")]
+                                            [_vm._v("Seleccionar Día")]
                                           ),
                                           _vm._v(" "),
                                           _vm.form.profesional
                                             ? _c("datepicker", {
-                                                staticClass: "form-control",
                                                 attrs: {
+                                                  "bootstrap-styling": true,
                                                   disabledDates:
                                                     _vm.disabledDates,
                                                 },
@@ -37458,11 +37459,11 @@ var render = function () {
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "col-12 col-lg-6" },
+                                    { staticClass: "col-12 col-lg-6 row" },
                                     [
                                       _c(
                                         "div",
-                                        { staticClass: "mb-3" },
+                                        { staticClass: "mb-3 col-1" },
                                         [
                                           _c("b-form-radio-group", {
                                             staticClass: "custom-check",
@@ -37496,157 +37497,203 @@ var render = function () {
                           ],
                           1
                         )
-                      : _c(
-                          "div",
-                          { staticClass: "card checkout-order-summary" },
-                          [
-                            _c("div", { staticClass: "card-body" }, [
-                              _c("div", { staticClass: "p-3 bg-light mb-4" }, [
-                                _c("h5", { staticClass: "font-size-16 mb-0" }, [
-                                  _vm._v(
-                                    "\n                      Reserva\n                      "
-                                  ),
-                                  _c(
-                                    "span",
-                                    { staticClass: "float-end ms-2" },
-                                    [_vm._v(_vm._s(_vm.codigo))]
-                                  ),
+                      : _c("div", { staticClass: " checkout-order-summary" }, [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("div", { staticClass: "p-3 bg-light mb-4" }, [
+                              _c("h5", { staticClass: "font-size-16 mb-0" }, [
+                                _vm._v(
+                                  "\n                      Reserva\n                      "
+                                ),
+                                _c("span", { staticClass: "float-end ms-2" }, [
+                                  _vm._v(_vm._s(_vm.codigo)),
                                 ]),
                               ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "table-responsive" }, [
-                                _c(
-                                  "table",
-                                  {
-                                    staticClass:
-                                      "table table-centered mb-0 table-nowrap",
-                                  },
-                                  [
-                                    _c("thead", [
-                                      _c("tr", [
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                {
+                                  staticClass:
+                                    "table table-centered mb-0 table-nowrap",
+                                },
+                                [
+                                  _c("thead", [
+                                    _c("tr", [
+                                      _c(
+                                        "th",
+                                        {
+                                          staticClass: "border-top-0",
+                                          attrs: { scope: "col" },
+                                        },
+                                        [_vm._v("Servicio")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "th",
+                                        {
+                                          staticClass: "border-top-0",
+                                          attrs: { scope: "col" },
+                                        },
+                                        [_vm._v("Precio")]
+                                      ),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tbody", [
+                                    _c("tr", [
+                                      _c("td", [
                                         _c(
-                                          "th",
+                                          "h5",
                                           {
-                                            staticClass: "border-top-0",
-                                            attrs: { scope: "col" },
+                                            staticClass:
+                                              "font-size-14 text-truncate",
                                           },
-                                          [_vm._v("Servicio")]
+                                          [
+                                            _c(
+                                              "router-link",
+                                              {
+                                                staticClass: "text-dark",
+                                                attrs: {
+                                                  to: "/ecommerce/product-detail/1",
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.form.servicio.nombre
+                                                  )
+                                                ),
+                                              ]
+                                            ),
+                                          ],
+                                          1
                                         ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "th",
-                                          {
-                                            staticClass: "border-top-0",
-                                            attrs: { scope: "col" },
-                                          },
-                                          [_vm._v("Precio")]
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          "$ " +
+                                            _vm._s(
+                                              _vm.subtotal
+                                                .toString()
+                                                .replace(
+                                                  /\B(?=(\d{3})+(?!\d))/g,
+                                                  "."
+                                                )
+                                            )
                                         ),
                                       ]),
                                     ]),
                                     _vm._v(" "),
-                                    _c("tbody", [
-                                      _c("tr", [
-                                        _c("td", [
-                                          _c(
-                                            "h5",
-                                            {
-                                              staticClass:
-                                                "font-size-14 text-truncate",
-                                            },
-                                            [
-                                              _c(
-                                                "router-link",
-                                                {
-                                                  staticClass: "text-dark",
-                                                  attrs: {
-                                                    to: "/ecommerce/product-detail/1",
-                                                  },
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(
-                                                      _vm.form.servicio.nombre
-                                                    )
-                                                  ),
-                                                ]
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _vm._v(_vm._s(_vm.subtotal)),
-                                        ]),
+                                    _c("tr", [
+                                      _c("td", { attrs: { colspan: "2" } }, [
+                                        _c(
+                                          "h5",
+                                          { staticClass: "font-size-14 m-0" },
+                                          [_vm._v("SubTotal :")]
+                                        ),
                                       ]),
                                       _vm._v(" "),
-                                      _c("tr", [
-                                        _c("td", { attrs: { colspan: "2" } }, [
-                                          _c(
-                                            "h5",
-                                            { staticClass: "font-size-14 m-0" },
-                                            [_vm._v("SubTotal :")]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _vm._v(_vm._s(_vm.subtotal)),
-                                        ]),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("tr", [
-                                        _c("td", { attrs: { colspan: "2" } }, [
-                                          _c(
-                                            "h5",
-                                            { staticClass: "font-size-14 m-0" },
-                                            [_vm._v("IVA :")]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [_vm._v(_vm._s(_vm.iva))]),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("tr", { staticClass: "bg-light" }, [
-                                        _c("td", { attrs: { colspan: "2" } }, [
-                                          _c(
-                                            "h5",
-                                            { staticClass: "font-size-14 m-0" },
-                                            [_vm._v("Total:")]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [_vm._v(_vm._s(_vm.total))]),
+                                      _c("td", [
+                                        _vm._v(
+                                          "$ " +
+                                            _vm._s(
+                                              _vm.subtotal
+                                                .toString()
+                                                .replace(
+                                                  /\B(?=(\d{3})+(?!\d))/g,
+                                                  "."
+                                                )
+                                            )
+                                        ),
                                       ]),
                                     ]),
-                                  ]
-                                ),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col" }, [
-                              _c(
-                                "div",
-                                { staticClass: "text-sm-right mt-2 mt-sm-0" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-success",
-                                      attrs: { href: _vm.url, id: "pagar" },
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass:
-                                          "uil uil-shopping-cart-alt me-1",
-                                      }),
-                                      _vm._v(" Pagar\n                    "),
-                                    ]
-                                  ),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td", { attrs: { colspan: "2" } }, [
+                                        _c(
+                                          "h5",
+                                          { staticClass: "font-size-14 m-0" },
+                                          [_vm._v("IVA :")]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          "$ " +
+                                            _vm._s(
+                                              _vm.iva
+                                                .toString()
+                                                .replace(
+                                                  /\B(?=(\d{3})+(?!\d))/g,
+                                                  "."
+                                                )
+                                            )
+                                        ),
+                                      ]),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", { staticClass: "bg-light" }, [
+                                      _c("td", { attrs: { colspan: "2" } }, [
+                                        _c(
+                                          "h5",
+                                          { staticClass: "font-size-14 m-0" },
+                                          [_vm._v("Total:")]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _c("b", [
+                                          _vm._v(
+                                            " $ " +
+                                              _vm._s(
+                                                _vm.total
+                                                  .toString()
+                                                  .replace(
+                                                    /\B(?=(\d{3})+(?!\d))/g,
+                                                    "."
+                                                  )
+                                              ) +
+                                              " "
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]),
+                                  ]),
                                 ]
                               ),
                             ]),
-                          ]
-                        ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 pb-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "text-sm-right mt-2 mt-sm-0 text-center",
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-success",
+                                    attrs: { href: _vm.url, id: "pagar" },
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass:
+                                        "uil uil-shopping-cart-alt me-1",
+                                    }),
+                                    _vm._v(
+                                      " Pagar Consulta\n                    "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                          ]),
+                        ]),
                   ],
                   1
                 ),

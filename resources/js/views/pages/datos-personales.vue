@@ -197,20 +197,26 @@ div.backgroundG {
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-lg-6">
+                      <div class="col-12 col-lg-12">
                         <div class="mb-3">
-                          <label for="dia">Dia</label>
+                          <label for="dia">Seleccionar Día</label>
                           <datepicker
                             v-if="form.profesional"
-                            class="form-control"
+                            :bootstrap-styling="true"
                             :disabledDates="disabledDates"
                             v-model="form.dia"
                             @input="traerHorario()"
                           ></datepicker>
                         </div>
                       </div>
-                      <div class="col-12 col-lg-6">
-                        <div class="mb-3">
+                      <!-- <div class="col-12 col-lg-12 row">
+                        <div class="col-2 text-center" v-for="(value, key, index) in optionsHora">
+                            <input type="radio" class="btn-check" name="options" v-model="form.hora_inicio" :id="'options'+key" autocomplete="off" style="background-color: #18a096; border-color: #18a096; color: white;">
+                            <label class="btn btn-info" :for="'options'+key">{{value.text}}</label>
+                        </div>
+                      </div> -->
+                      <div class="col-12 col-lg-6 row">
+                        <div class="mb-3 col-1">
                           <b-form-radio-group
                             class="custom-check"
                             id="btn-radios-1"
@@ -226,7 +232,7 @@ div.backgroundG {
                   </tab-content>
                 </form-wizard>
 
-                <div class="card checkout-order-summary" v-else>
+                <div class=" checkout-order-summary" v-else>
                   <div class="card-body">
                     <div class="p-3 bg-light mb-4">
                       <h5 class="font-size-16 mb-0">
@@ -253,34 +259,34 @@ div.backgroundG {
                                 >
                               </h5>
                             </td>
-                            <td>{{ subtotal }}</td>
+                            <td>$ {{ subtotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</td>
                           </tr>
                           <tr>
                             <td colspan="2">
                               <h5 class="font-size-14 m-0">SubTotal :</h5>
                             </td>
-                            <td>{{ subtotal }}</td>
+                            <td>$ {{ subtotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</td>
                           </tr>
                           <tr>
                             <td colspan="2">
                               <h5 class="font-size-14 m-0">IVA :</h5>
                             </td>
-                            <td>{{ iva }}</td>
+                            <td>$ {{ iva.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</td>
                           </tr>
                           <tr class="bg-light">
                             <td colspan="2">
                               <h5 class="font-size-14 m-0">Total:</h5>
                             </td>
-                            <td>{{ total }}</td>
+                            <td> <b> $ {{ total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }} </b></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="text-sm-right mt-2 mt-sm-0">
+                  <div class="col-12 pb-3">
+                    <div class="text-sm-right mt-2 mt-sm-0 text-center">
                       <a :href="url" class="btn btn-success" id="pagar">
-                        <i class="uil uil-shopping-cart-alt me-1"></i> Pagar
+                        <i class="uil uil-shopping-cart-alt me-1"></i> Pagar Consulta
                       </a>
                     </div>
                   </div>

@@ -24,7 +24,6 @@ class ReservaController extends Controller
     {
         // creamos el paciente o lo actualizamos
 
-
         $paciente = Paciente::updateOrCreate(['id_paciente'=>$request->id_paciente],
         [
             'nombres' => $request->nombres,
@@ -65,30 +64,29 @@ class ReservaController extends Controller
         $precio = 0;
 
         if($request->prevension_id["nombre"] == "Fonasa"){
-
             if($request->servicio["precio_fonasa"]){
                 $precio = (int)$request->servicio["precio_fonasa"];
+            }else{
+                $precio = (int)$request->servicio["precio_particular"];
             }
-
         }else if($request->prevension_id["nombre"] == "Particular"){
 
             if($request->servicio["precio_particular"]){
                 $precio = (int)$request->servicio["precio_particular"];
             }
-
         }else{
-
             if($request->servicio["precio_isapre"]){
                 $precio = (int)$request->servicio["precio_isapre"];
+            }else{
+                $precio = (int)$request->servicio["precio_particular"];
             }
-
         }
 
         $subtotal = $precio;
 
-        $iva = $precio * 0.19;
+        $iva = round($precio * 0.19);
 
-        $total = $subtotal + $iva;
+        $total = $subtotal;
 
         $venta  = Venta::create([
             'reserva_id' => $reserva->id_reserva ,
