@@ -37459,37 +37459,65 @@ var render = function () {
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "col-12 col-lg-6 row" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "mb-3 col-1" },
-                                        [
-                                          _c("b-form-radio-group", {
-                                            staticClass: "custom-check",
-                                            attrs: {
-                                              id: "btn-radios-1",
-                                              "button-variant": "primary",
-                                              options: _vm.optionsHora,
-                                              buttons: "",
-                                              name: "radios-btn-default",
-                                            },
-                                            model: {
-                                              value: _vm.form.hora_inicio,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.form,
-                                                  "hora_inicio",
-                                                  $$v
-                                                )
+                                    { staticClass: "col-12 col-lg-12 row" },
+                                    _vm._l(
+                                      _vm.optionsHora,
+                                      function (value, key, index) {
+                                        return _c(
+                                          "div",
+                                          {
+                                            key: index,
+                                            staticClass: "col-2 text-center",
+                                          },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.form.hora_inicio,
+                                                  expression:
+                                                    "form.hora_inicio",
+                                                },
+                                              ],
+                                              staticClass: "btn-check",
+                                              attrs: {
+                                                type: "radio",
+                                                name: "options",
+                                                id: "options" + key,
+                                                autocomplete: "off",
                                               },
-                                              expression: "form.hora_inicio",
-                                            },
-                                          }),
-                                        ],
-                                        1
-                                      ),
-                                    ]
+                                              domProps: {
+                                                value: value.text,
+                                                checked: _vm._q(
+                                                  _vm.form.hora_inicio,
+                                                  value.text
+                                                ),
+                                              },
+                                              on: {
+                                                change: function ($event) {
+                                                  return _vm.$set(
+                                                    _vm.form,
+                                                    "hora_inicio",
+                                                    value.text
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "label",
+                                              {
+                                                staticClass: "btn btn-info",
+                                                attrs: { for: "options" + key },
+                                              },
+                                              [_vm._v(_vm._s(value.text))]
+                                            ),
+                                          ]
+                                        )
+                                      }
+                                    ),
+                                    0
                                   ),
                                 ]),
                               ]

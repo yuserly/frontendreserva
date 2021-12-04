@@ -209,13 +209,13 @@ div.backgroundG {
                           ></datepicker>
                         </div>
                       </div>
-                      <!-- <div class="col-12 col-lg-12 row">
-                        <div class="col-2 text-center" v-for="(value, key, index) in optionsHora">
-                            <input type="radio" class="btn-check" name="options" v-model="form.hora_inicio" :id="'options'+key" autocomplete="off" style="background-color: #18a096; border-color: #18a096; color: white;">
-                            <label class="btn btn-info" :for="'options'+key">{{value.text}}</label>
+                      <div class="col-12 col-lg-12 row">
+                        <div class="col-2 text-center" v-for="(value, key, index) in optionsHora" :key="index">
+                            <input type="radio" class="btn-check" name="options" v-model="form.hora_inicio" :id="'options'+key" :value="value.text" autocomplete="off" >
+                            <label class="btn btn-info" :for="'options'+key" >{{value.text}}</label>
                         </div>
-                      </div> -->
-                      <div class="col-12 col-lg-6 row">
+                      </div>
+                      <!-- <div class="col-12 col-lg-6 row">
                         <div class="mb-3 col-1">
                           <b-form-radio-group
                             class="custom-check"
@@ -227,7 +227,7 @@ div.backgroundG {
                             name="radios-btn-default"
                           ></b-form-radio-group>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </tab-content>
                 </form-wizard>
