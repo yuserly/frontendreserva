@@ -105,7 +105,6 @@ class ProfesionalController extends Controller
 
         // pasar a numero 
 
-
         $quitarcero = str_replace("00:", "", $request->especialidad["intervalo"]);
 
         // quitar :
@@ -116,7 +115,15 @@ class ProfesionalController extends Controller
 
         // consultar el numero del dia ya que 0 es domingo y tenemos guardado es el id_dia
 
-        $dia = Dia::where('dia', $request->id_dia)->first();
+        if($request->id_dia == 0){
+
+            $numdia = 7;
+        }else{
+
+            $numdia = $request->id_dia;
+        }
+
+        $dia = Dia::where('dia', $numdia)->first();
 
         if($dia){
 
