@@ -51,8 +51,10 @@ export default {
         prevension_id: "",
         id_paciente: "",
         id_sucursal: "",
+        telemedicina: "",
       },
       optionsHora: [],
+      selectTelemedicina: false,
     };
   },
 
@@ -235,7 +237,14 @@ export default {
         )
         .then((response) => {
           console.log(response);
-          this.optionsProfesional = response.data;
+          if(response.data.servicio.telemedicina == 1){
+            this.selectTelemedicina = true;
+            this.form.telemedicina = "";
+        }else{
+            this.selectTelemedicina = false;
+            this.form.telemedicina = "";
+        }
+          this.optionsProfesional = response.data.profesional;
         });
     },
 
@@ -287,7 +296,7 @@ export default {
           var rangoshoraactual = response.data.rangoshoraactual;
 
           for (let i = 0; i < rangosdisponibles.length; i++) {
-            for (let j = 0; j < rangoshoraactual.length; j++) {
+            for (let j = 0; j < rangoshoraactual.length; j++) { 
               if (rangosdisponibles[i] == rangoshoraactual[j]) {
                 rangosdisponibles.splice(i, 1);
               }

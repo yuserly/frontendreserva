@@ -8,6 +8,7 @@ use App\Models\HorarioProfesional;
 use App\Models\Profesional;
 use App\Models\profesional_servicio;
 use App\Models\Reserva;
+use App\Models\Servicio;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,16 +59,11 @@ class ProfesionalController extends Controller
     }
     public function showserviciosucursal($id_servicio, $id_sucursal){
 
-
-        // $servicio = profesional_servicio::select('profesionals.*')
-        //                     ->join('profesionals','profesionals.id_profesional','=','profesional_servicio.profesional_id_profesional')
-        //                     ->where('profesional_servicio.sucursal_id_sucursal','=', $id_sucursal)
-        //                     ->where('profesional_servicio.servicio_id_servicio','=',$id_servicio)
-        //                     ->get();
+        $servicio = Servicio::select('telemedicina')->where('id_servicio',$id_servicio)->first();
 
         $profesional = profesional_servicio::where([['servicio_id_servicio', $id_servicio],['sucursal_id_sucursal', $id_sucursal]])->with('profesional')->get();
 
-        return $profesional;
+        return ['profesional' => $profesional, 'servicio' => $servicio];
 
     }
 
@@ -103,6 +99,7 @@ class ProfesionalController extends Controller
 
     public function traerhorariofrontend(Request $request){
 
+        //return $request;
         // pasar a numero 
 
         $quitarcero = str_replace("00:", "", $request->especialidad["intervalo"]);
@@ -192,10 +189,13 @@ class ProfesionalController extends Controller
                         $arraybloqueo[] =  $hora->format("H:i:s");
                     }
 
-                    for ($i=0; $i < count($arrayh)  ; $i++) { 
+                    $primero = count($arrayh);
+                    $segundo = count($arraybloqueo);
+
+                    for ($i=0; $i <  $primero ; $i++) { 
                         $hora = $arrayh[$i]; 
 
-                        for ($j=0; $j < count($arraybloqueo) ; $j++) { 
+                        for ($j=0; $j < $segundo ; $j++) { 
                             $bloqueo = $arraybloqueo[$j];
 
                             if($bloqueo == $hora){
@@ -206,7 +206,8 @@ class ProfesionalController extends Controller
                         }
                     }
             }
-
+            //return $arrayh;
+            
             $arrayh = array_values($arrayh);
 
             // traer reservas

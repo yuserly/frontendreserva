@@ -22,12 +22,12 @@
                   next-button-text="Siguiente"
                   back-button-text="Atras"
                   finish-button-text="Finalizar"
-                  @on-complete="onComplete()"
+                  @on-complete="onComplete()" 
                 >
                   <tab-content icon="mdi mdi-human-greeting">
                     <div class="row">
                       <div class="col-12 col-lg-6">
-                        <div class="mb-3">
+                        <div class="mb-3"> 
                           <label for="rut">RUT</label>
                           <input
                             id="rut"
@@ -173,6 +173,15 @@
                           ></multiselect>
                         </div>
                       </div>
+                      <div class="col-12 col-lg-6" v-if="selectTelemedicina">
+                        <div class="mb-3">
+                          <label for="servicios">Telemedicina</label>
+                          <div dir="ltr" class="form-check form-switch form-switch-lg mb-3">
+                            <input type="checkbox" id="customSwitchsizelg" class="form-check-input" v-model="form.telemedicina" value="1"> 
+                            <label for="customSwitchsizelg" class="form-check-label">Asistencia telemedicina</label>
+                          </div>
+                        </div>
+                      </div>
                       <div class="col-12 col-lg-6">
                         <div class="mb-3">
                           <label for="profesional">Profesional</label>
@@ -205,19 +214,6 @@
                             <label class="btn btn-info" :for="'options'+key" >{{value.text}}</label>
                         </div>
                       </div>
-                      <!-- <div class="col-12 col-lg-6 row">
-                        <div class="mb-3 col-1">
-                          <b-form-radio-group
-                            class="custom-check"
-                            id="btn-radios-1"
-                            button-variant="primary"
-                            v-model="form.hora_inicio"
-                            :options="optionsHora"
-                            buttons
-                            name="radios-btn-default"
-                          ></b-form-radio-group>
-                        </div>
-                      </div> -->
                     </div>
                   </tab-content>
                 </form-wizard>

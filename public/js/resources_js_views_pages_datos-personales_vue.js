@@ -119,9 +119,11 @@ __webpack_require__.r(__webpack_exports__);
         direccion: "",
         prevension_id: "",
         id_paciente: "",
-        id_sucursal: ""
+        id_sucursal: "",
+        telemedicina: ""
       },
-      optionsHora: []
+      optionsHora: [],
+      selectTelemedicina: false
     };
   },
   mounted: function mounted() {
@@ -288,7 +290,16 @@ __webpack_require__.r(__webpack_exports__);
       this.optionsHora = [];
       this.axios.get("/api/obtenerprofesional/".concat(this.form.servicio.id_servicio, "/").concat(this.form.sucursal.id_sucursal)).then(function (response) {
         console.log(response);
-        _this7.optionsProfesional = response.data;
+
+        if (response.data.servicio.telemedicina == 1) {
+          _this7.selectTelemedicina = true;
+          _this7.form.telemedicina = "";
+        } else {
+          _this7.selectTelemedicina = false;
+          _this7.form.telemedicina = "";
+        }
+
+        _this7.optionsProfesional = response.data.profesional;
       });
     },
     traerDiasDisponibles: function traerDiasDisponibles() {
@@ -37289,6 +37300,149 @@ var render = function () {
                                           ),
                                         ]
                                       ),
+                                      _vm._v(" "),
+                                      _vm.selectTelemedicina
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "col-12 col-lg-6" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "mb-3" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      attrs: {
+                                                        for: "servicios",
+                                                      },
+                                                    },
+                                                    [_vm._v("Telemedicina")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "form-check form-switch form-switch-lg mb-3",
+                                                      attrs: { dir: "ltr" },
+                                                    },
+                                                    [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.form
+                                                                .telemedicina,
+                                                            expression:
+                                                              "form.telemedicina",
+                                                          },
+                                                        ],
+                                                        staticClass:
+                                                          "form-check-input",
+                                                        attrs: {
+                                                          type: "checkbox",
+                                                          id: "customSwitchsizelg",
+                                                          value: "1",
+                                                        },
+                                                        domProps: {
+                                                          checked:
+                                                            Array.isArray(
+                                                              _vm.form
+                                                                .telemedicina
+                                                            )
+                                                              ? _vm._i(
+                                                                  _vm.form
+                                                                    .telemedicina,
+                                                                  "1"
+                                                                ) > -1
+                                                              : _vm.form
+                                                                  .telemedicina,
+                                                        },
+                                                        on: {
+                                                          change: function (
+                                                            $event
+                                                          ) {
+                                                            var $$a =
+                                                                _vm.form
+                                                                  .telemedicina,
+                                                              $$el =
+                                                                $event.target,
+                                                              $$c = $$el.checked
+                                                                ? true
+                                                                : false
+                                                            if (
+                                                              Array.isArray($$a)
+                                                            ) {
+                                                              var $$v = "1",
+                                                                $$i = _vm._i(
+                                                                  $$a,
+                                                                  $$v
+                                                                )
+                                                              if (
+                                                                $$el.checked
+                                                              ) {
+                                                                $$i < 0 &&
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "telemedicina",
+                                                                    $$a.concat([
+                                                                      $$v,
+                                                                    ])
+                                                                  )
+                                                              } else {
+                                                                $$i > -1 &&
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "telemedicina",
+                                                                    $$a
+                                                                      .slice(
+                                                                        0,
+                                                                        $$i
+                                                                      )
+                                                                      .concat(
+                                                                        $$a.slice(
+                                                                          $$i +
+                                                                            1
+                                                                        )
+                                                                      )
+                                                                  )
+                                                              }
+                                                            } else {
+                                                              _vm.$set(
+                                                                _vm.form,
+                                                                "telemedicina",
+                                                                $$c
+                                                              )
+                                                            }
+                                                          },
+                                                        },
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "form-check-label",
+                                                          attrs: {
+                                                            for: "customSwitchsizelg",
+                                                          },
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "Asistencia telemedicina"
+                                                          ),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ]
+                                              ),
+                                            ]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
                                       _c(
                                         "div",

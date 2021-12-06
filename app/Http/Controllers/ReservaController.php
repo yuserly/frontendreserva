@@ -57,7 +57,8 @@ class ReservaController extends Controller
             'estado_id' => 2,
             'codigo' => $codigo,
             'sucursal_id' => $request->sucursal["id_sucursal"],
-            'servicio_id' => $servicio
+            'servicio_id' => $servicio,
+            'telemedicina' => ($request->telemedicina) ? 1 : 0,
         ]);
 
         // hacemos el calculo
